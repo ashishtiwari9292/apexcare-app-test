@@ -26,7 +26,6 @@ jobs:
       - name: Install dependencies and build project
         run: |
           npm install --legacy-peer-deps
-          npm run build
 
       - name: Analyze with SonarQube
         uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
