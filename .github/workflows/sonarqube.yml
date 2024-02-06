@@ -21,15 +21,12 @@ jobs:
       - name: Install Node.js and npm
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '14'
 
       - name: Install dependencies and build project
         run: |
-          echo "Installing npm dependencies"
           npm install --legacy-peer-deps
-          echo "Starting the build step"
           npm run build
-          echo "Build finished"
 
       - name: Analyze with SonarQube
         uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
