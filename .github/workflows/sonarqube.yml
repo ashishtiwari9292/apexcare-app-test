@@ -35,4 +35,3 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} 
           args:
             -Dsonar.projectKey=appexcare
-            -Dsonar.sources=.
