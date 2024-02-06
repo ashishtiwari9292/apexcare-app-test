@@ -1,0 +1,23 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: latest
+  pre_build:
+    commands:
+      - echo "Prebuild, installing npm dependencies"
+      - npm install  --legacy-peer-deps
+  build:
+    commands:
+      - echo "Starting the build step"
+      - npm run build
+      - echo "Finished"
+  post_build:
+    commands:  
+      - echo "Run to invalidation"
+      - aws cloudfront create-invalidation --distribution-id $CLOUD_FRONT_ID --paths "/*"    
+artifacts:
+  name: "BuildOutput"
+  files:
+    - '**/*'
+  base-directory: 'build'
